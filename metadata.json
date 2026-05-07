@@ -1,0 +1,6 @@
+{
+  "name": "MemSim Pro",
+  "description": "An advanced Virtual Memory Management educational simulator featuring real-time paging algorithm visualization and performance analytics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
