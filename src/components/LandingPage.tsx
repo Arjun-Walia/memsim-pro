@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import SplitText from './SplitText';
 import {
   ArrowRight,
   CircuitBoard,
@@ -113,7 +114,7 @@ export default function LandingPage({ onDeploy }: LandingPageProps) {
           <div className="absolute inset-0 pointer-events-none opacity-20 grid-bg" />
           <div className="flex-grow grid grid-cols-1 lg:grid-cols-12 relative z-10">
             {/* Left text */}
-            <div className="lg:col-span-5 flex flex-col justify-center px-8 sm:px-12 lg:px-24 py-16 bg-surface-container-lowest border-r border-outline-variant/20">
+            <div className="lg:col-span-5 flex flex-col justify-center px-8 sm:px-12 lg:px-24 py-16 bg-surface-container-lowest border-r border-outline-variant/20 select-none">
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -121,22 +122,47 @@ export default function LandingPage({ onDeploy }: LandingPageProps) {
               >
                 Virtual Memory Simulator
               </motion.div>
-              <motion.h1
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                className="font-headline text-[3rem] sm:text-[3.5rem] leading-[1.1] font-extralight text-primary mb-6 tracking-tighter"
-              >
-                Determined<br />
-                <strong className="font-bold">Memory State<br />Simulation</strong>
-              </motion.h1>
-              <motion.p
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.1 }}
+              <div className="font-headline text-[3rem] sm:text-[3.5rem] leading-[1.1] text-primary mb-6 tracking-tighter">
+                <SplitText
+                  text="Determined"
+                  className="font-extralight block"
+                  delay={30}
+                  duration={1.1}
+                  ease="power3.out"
+                  splitType="chars"
+                  from={{ opacity: 0, y: 48, filter: 'blur(4px)' }}
+                  to={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                  threshold={0.05}
+                  rootMargin="0px"
+                  textAlign="left"
+                />
+                <SplitText
+                  text="Memory State Simulation"
+                  className="font-bold block"
+                  delay={30}
+                  duration={1.1}
+                  ease="power3.out"
+                  splitType="chars"
+                  from={{ opacity: 0, y: 48, filter: 'blur(4px)' }}
+                  to={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                  threshold={0.05}
+                  rootMargin="0px"
+                  textAlign="left"
+                />
+              </div>
+              <SplitText
+                text="Execute, analyze, and compare virtual memory paging algorithms step by step. Watch exactly how LRU, FIFO, and Optimal handle page faults in real time."
                 className="font-sans text-base text-on-surface-variant mb-10 max-w-sm leading-relaxed"
-              >
-                Execute, analyze, and compare virtual memory paging algorithms step by step. Watch exactly how LRU, FIFO, and Optimal handle page faults in real time.
-              </motion.p>
+                delay={8}
+                duration={0.8}
+                ease="power2.out"
+                splitType="words"
+                from={{ opacity: 0, y: 20 }}
+                to={{ opacity: 1, y: 0 }}
+                threshold={0.05}
+                rootMargin="0px"
+                textAlign="left"
+              />
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}

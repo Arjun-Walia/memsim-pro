@@ -28,6 +28,12 @@
   body {
     @apply bg-surface text-on-surface font-sans antialiased;
   }
+
+  a,
+  button,
+  [role="button"] {
+    cursor: pointer;
+  }
 }
 
 .custom-scrollbar::-webkit-scrollbar {
